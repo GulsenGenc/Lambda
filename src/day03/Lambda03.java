@@ -1,6 +1,7 @@
 package day03;
 
 import day01.Lambda01;
+import day02.Lambda02;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,6 +19,12 @@ public class Lambda03 {
         chrSayisiBkSirala(menü);
         System.out.println("***\n");
         sonHrfBkSirala(menü);
+        System.out.println("***\n");
+        ciftlerınKaresıSıralaByktnKcgeTkrarsz(menü);
+        System.out.println("***\n");
+        char7denAzKontrol(menü);
+
+
 
     }
 
@@ -54,7 +61,27 @@ public class Lambda03 {
     }
 
     // Task : listin elemanlarin karakterlerinin cift sayili  karelerini hesaplayan,ve karelerini tekrarsiz buyukten kucuge sirali  print ediniz..
+   public static void ciftlerınKaresıSıralaByktnKcgeTkrarsz(List<String> menü){
+        menü.stream().filter(t-> t.length()%2==0).map(t-> t.length()*t.length()).sorted(Comparator.reverseOrder()).distinct().forEach(Lambda01::yazdır);
+       //baska bır yontemle-->
+  menü.stream().map(t-> t.length()*t.length()).filter(Lambda01::ciftBul).distinct().sorted(Comparator.reverseOrder()).forEach(Lambda01::yazdır);
+   }
+
     // Task : List elelmmalarinin karakter sayisini 7 ve 7 'den az olma durumunu kontrol ediniz.
+    public static void char7denAzKontrol(List<String> menü){
+      boolean kontrol=  menü.stream().allMatch(t-> t.length()<7);
+        if (kontrol){
+            System.out.println("list elemanları 7 ve daha az harften olusuyor");
+        } else{
+            System.out.println("list elemanları 7 harften buyuk değil");
+        }
+        //daha clean code ıle -->
+        System.out.println(menü.stream().allMatch(t -> t.length() <= 7) ? "list elemanları 7 ve daha az harften olusuyor" : "list elemanları 7 harften buyuk değil");
+        //anyMatch() --> enaz bir eleman sarti saglarsa true aksi durumda false return eder
+        //allMatch() --> tum  elemanlar sarti saglarsa true en az bir eleman sarti saglamazsa false return eder.
+        //noneMatch()--> hic bir sarti SAGLAMAZSA true en az bir eleman sarti SAGLARSA false return eder.
+    }
+
     // Task : List elelmanlarinin "W" ile baslamasını kontrol ediniz.
     // Task : List elelmanlarinin "x" ile biten en az bir elemaı kontrol ediniz.
     // Task : Karakter sayisi en buyuk elemani yazdiriniz.
