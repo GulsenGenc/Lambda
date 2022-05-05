@@ -63,7 +63,6 @@ public class Universite {
         return "universite='" + universite + '\'' +
                 ", bolum='" + bolum + '\'' +
                 ", ogrSayisi=" + ogrSayisi +
-                ", notOrt=" + notOrt +
-                '}';
+                ", notOrt=" + notOrt +" \n";
     }
 }
