@@ -1,4 +1,4 @@
-package day04;
+package day04_day05;
 
 import java.util.*;
 import java.util.stream.Collectors;

@@ -1,4 +1,4 @@
-package day04;
+package day04_day05;
 
 public class Universite {
 /*
