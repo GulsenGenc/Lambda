@@ -85,11 +85,15 @@ public class Lambda06 {
 
         //TASK 10 --> haluk.txt dosyasinda kac /farklı harf kullanildigini yazdiriniz
         System.out.println("\n*** haluk.txt dosyasinda kac /farklı harf kullanildigini  yazdiriniz. -->  ");
-        Files.lines(haluk).map(t-> t.split("")).flatMap(Arrays::stream).distinct().forEach(System.out::println);
-
+        System.out.println(Files.lines(haluk).map(t -> t.replaceAll("\\W", "").
+                        replaceAll("\\d", "")).
+                map(t -> t.split("")).flatMap(Arrays::stream).distinct().count());
 
         //TASK 11 --> haluk.txt dosyasinda kac farkli kelime kullanildigini yazdiriniz
         System.out.println("\n*** haluk.txt dosyasinda kac farkli kelime kullanildigini  yazdiriniz. -->  ");
+        System.out.println(Files.lines(haluk).map(t -> t.replaceAll("\\W", "").
+                        replaceAll("\\d", "")).
+                map(t -> t.split(" ")).flatMap(Arrays::stream).distinct().count());
 
 
 
